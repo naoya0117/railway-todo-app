@@ -54,8 +54,6 @@ export const Home = () => {
     }
   }, [lists]);
 
-
-
   const handleSelectList = (id) => {
     setSelectListId(id);
     axios
@@ -75,7 +73,7 @@ export const Home = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      const index = lists.findIndex(list => list.id === activeTab);
+      const index = lists.findIndex((list) => list.id === activeTab);
       let newIndex = index;
 
       if (e.key === "ArrowRight") {

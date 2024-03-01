@@ -18,17 +18,18 @@ export const SignIn = () => {
   const [, setCookie] = useCookies();
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
+
   const onSignIn = () => {
-    axios.post(`${url}/signin`, { email, password }).then(
-      ((res) => {
+    axios
+      .post(`${url}/signin`, { email, password })
+      .then((res) => {
         setCookie("token", res.data.token);
         dispatch(signIn());
         navigate("/");
       })
-    ).catch((err) => {
-      setErrorMessage(`サインインに失敗しました。${err}`);
-    });
-
+      .catch((err) => {
+        setErrorMessage(`サインインに失敗しました。${err}`);
+      });
   };
 
   if (auth) navigate("/");
