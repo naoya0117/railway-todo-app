@@ -1,13 +1,22 @@
 @charset "utf-8";
+@import "../_breakpoint.scss";
+@import "../_mixin.scss";
 
 .edit-list {
   margin: 0 auto;
 
-  h2 {
-    @media screen and (max-width: 768px) {
-      text-align: center;
-    }
+  @include mq(lg) {
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
+  @include mq(sm) {
+    font-size: 1.2rem;
+  }
+
 
   .edit-list-form {
     color: #555555;
@@ -38,17 +47,5 @@
       color: #ff3333;
     }
 
-    @media screen and (max-width: 768px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media screen and (max-width: 480px) {
-      .edit-list-title {
-        width: 250px;
-      }
-    }
   }
 }

@@ -1,4 +1,6 @@
 @charset "utf-8";
+@import "../_breakpoint.scss";
+@import "../_mixin.scss";
 
 .header {
   width: 100%;
@@ -11,15 +13,17 @@
   .sign-out-button {
     color: #ffffff;
     margin: auto 25px auto auto;
+
+    @include mq(sm) {
+      margin: 0 auto;
+    }
   }
 
-  @media (max-width: 320px) {
+  @include mq(sm) {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px 0;
 
-    .sign-out-button {
-    }
   }
 }

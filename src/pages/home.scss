@@ -1,20 +1,44 @@
+@import "../_breakpoint.scss";
+@import "../_mixin.scss";
+
 .taskList {
   margin: 50px auto;
   list-style: none;
 
+  @include mq(sm) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 25px auto;
+  }
+
+
   .list-header {
     display: flex;
     justify-content: space-between;
+
+    @include mq(sm) {
+      flex-direction: column;
+      align-items: center;
+
+      margin-bottom: 25px;
+    }
   }
 
-  .list-menu {
-    text-align: right;
-  }
 
   .list-tab {
     list-style: none;
     display: flex;
     overflow-x: auto;
+
+    @include mq(sm) {
+      justify-content: center;
+      margin-bottom: 25px;
+
+      h2 {
+        margin-bottom: 25px;
+      }
+    }
   }
 
   .list-tab-item {
@@ -40,6 +64,16 @@
   .tasks-header {
     display: flex;
     justify-content: space-between;
+
+    @include mq(sm) {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 25px;
+
+      h2 {
+        margin-bottom: 25px;
+      }
+    }
   }
 
   .task-item {
@@ -73,67 +107,8 @@
     width: 100%;
   }
 
-  @media (max-width: 768px) {
-    .taskList {
-      width: 100%;
-      padding: 0 20px;
-    }
-
-    .taskList .list-tab-item,
-    .taskList .task-item {
-      width: auto;
-      padding: 0 10px;
-    }
-
-    .taskList .task-item {
-      height: auto;
-      padding: 15px;
-    }
-  }
-
-  @media (max-width: 320px) {
-    .taskList {
-      padding: 0 10px;
-    }
-
-    .taskList .list-tab-item,
-    .taskList .task-item {
-      padding: 0 5px;
-    }
-
-    .taskList .task-item {
-      font-size: medium;
-    }
-  }
-
   :focus {
     outline: 2px solid blue;
     background-color: lightyellow;
-  }
-
-  @media (max-width: 768px) {
-    .taskList {
-      width: auto;
-      margin: 20px;
-    }
-
-    .list-tab-item {
-      padding: 0 15px;
-      margin-right: 2px;
-    }
-
-    .task-item {
-      height: auto;
-      padding: 10px;
-      font-size: medium;
-    }
-  }
-
-  @media (max-width: 320px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
   }
 }
